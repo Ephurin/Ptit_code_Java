@@ -1,29 +1,59 @@
-import java.util.Scanner;
-import java.util.Arrays;
+//********************************************
+public class test2 {
 
-public class test2{
-    public static Scanner sc = new Scanner(System.in);
-
-    public static void solve() {
-        int n = sc.nextInt();
-        int[] a = new int[1001];
-        for (int i = 0; i < n; i++){
-            a[sc.nextInt()] = 1;
-        }  
-        for (int i = 0; i < 1001; i += 2){
-            if (a[i] == 1) System.out.print(i + " ");
-        }
-        System.out.println();
-        for (int i = 999; i >= 1; i -= 2){
-            if (a[i] == 1) System.out.print(i + " ");
-        } 
-        System.out.println();
-    }
-
-    public static void main(String[]args) {
-        int t = sc.nextInt();
-        while (t-- > 0){
-            solve();
-        }
-    }
+	public static void main(String[] args) {
+		
+		Fish fish = new Fish();
+		
+		fish.hunt();
+		fish.flee();
+				
+	}
 }
+//********************************************
+interface Prey {
+
+	void flee();
+}
+//********************************************
+interface Predator {
+
+	void hunt();
+}
+//********************************************
+class Rabbit implements Prey{
+
+
+	@Override
+	public void flee() {
+		System.out.println("*The rabbit is fleeing*");
+		
+        }
+}
+//********************************************
+class Hawk implements Predator{
+
+
+	@Override
+	public void hunt() {
+		System.out.println("*The hawk is hunting*");
+		
+        }
+}
+//********************************************
+class Fish implements Prey,Predator{
+
+
+	@Override
+	public void hunt() {
+		System.out.println("*The fish is hunting*");
+		
+	}
+
+	@Override
+	public void flee() {
+		System.out.println("*The fish is fleeing*");
+		
+	}
+}
+//********************************************
