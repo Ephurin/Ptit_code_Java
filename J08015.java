@@ -38,12 +38,12 @@ public class J08015 {
         long[] a = new long[n];
         for(int i = 0; i<n; i++) a[i] = sc.nextLong();
         Arrays.sort(a);
-        int res = 0;
+        long res = 0;
         for (int i = 0; i < n - 1; i++){
             long x = k - a[i];
             int l = firstOccurrence(a, n, x, i + 1, n - 1);
             int r = lastOccurrence(a, n, x, i + 1, n - 1);
-            if(l != -1 && r != -1) res += r - l + 1;
+            if(l != -1 && r != -1) res += (long)(r - l + 1);
         }
         System.out.println(res);
     }
